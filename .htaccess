@@ -1,0 +1,19 @@
+Options -Indexes
+Options +FollowSymLinks
+RewriteEngine On
+RewriteBase /
+
+ErrorDocument 404 /system/template/404.php?type=1
+ErrorDocument 500 /system/template/404.php?type=1
+
+
+RewriteRule ^([A-Za-z0-9-]+)$ index.php?ref=$1 [L]
+RewriteRule ^cabine/([0-9-]+)/([A-Za-z0-9-]+)$ index.php?ref=3&id_item=$1&url_item=$2 [L]
+RewriteRule ^cryolipolyse/([0-9-]+)/([A-Za-z0-9-]+)$ index.php?ref=4&id_item=$1&url_item=$2 [L]
+RewriteRule ^sitemap.xml$ /system/fonction/sitemap.php [L]
+
+
+
+<IfModule mod_headers.c>    
+    Header add Access-Control-Allow-Origin "*" 
+</IfModule>
